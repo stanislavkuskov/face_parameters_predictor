@@ -13,11 +13,12 @@ Basically its Dence layers where last layer has linear activation function.
 I choose adamax optimizer instead adam because adamax more robust to noise in the gradients.
 PS. Later I choose SGD with momentum to solve exploding gradients problem.
 I fit the model and save it for subsequent implementation. \
+I'm visualize loss (mse) and metric (mae) with pyplot. Mae usually used in regression.
 <b>Results of last iteration:</b> \
 <i>Epoch 200/200
 3696/3696 - 7s - loss: 3.6995e-05 - mean_absolute_error: 0.0046
 </i>
-I'm visualize loss (mse) and metric (mae) with pyplot. Mae usually used in regression.
+
 4. Describe how would you approach this problem if instead of encoding vectors, the input data would be face photographs (in case face recognition encodings were not available).
 From the point of view of medicine, facial parameters (nose size, chin width and others) has correlation with face size. 
 I would identify the key points of the face and train the neural network to detect such points on the photo 
