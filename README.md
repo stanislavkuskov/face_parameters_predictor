@@ -19,13 +19,21 @@ I'm visualize loss (mse) and metric (mae) with pyplot. Mae usually used in regre
 3696/3696 - 7s - loss: 3.6995e-05 - mean_absolute_error: 0.0046
 </i>
 
-4. Describe how would you approach this problem if instead of encoding vectors, the input data would be face photographs (in case face recognition encodings were not available).
+4. Describe how would you approach this problem if instead of encoding vectors, 
+the input data would be face photographs (in case face recognition encodings were not available):\
 From the point of view of medicine, facial parameters (nose size, chin width and others) has correlation with face size. 
 I would identify the key points of the face and train the neural network to detect such points on the photo 
 (this is the same for dlib landmarks detection but more accurate). 
 The ratio of the location of these points relative to each other, as well as the size of the face, 
 would allow us to determine a set of face parameters (blends) for different faces.
 For example, if we take the maximum and minimum width of the chin from dataset and designate the maximum as 1 and the minimum as 0, then the width for any person will have a corresponding value between 1 and 0.
+#### More complex example 
+ 1. Create neural network 68 landmarks (or more if needed) from here: https://github.com/1adrianb/face-alignment) (3d points prediction)
+ 2. Calculate maximal end minimal proportions of face height and for example nose height (based on medical parameters 
+ or using the normal distribution on the dataset of persons, choosing the upper and lower boundary)
+ 3. Calculate proportion of face height and nose height on current face
+ 4. Mapping this proportion on minimum and maximum (from 2 step) and convert in into value between 0 (minimal) and 1 (maximal)
+
 
 # Next steps
 What would I do next?
